@@ -14,9 +14,12 @@
     "url": "AngeloCore/rollup-plugin-template"
   },
   "scripts": {
-    "prepublishOnly": "npm run format && npm run build",
-    "format": "prettier --write src/*.ts",
-    "build": "tsc"
+    "prepublishOnly": "npm run clean && npm run format && npm run build",
+    "format": "prettier --write .",
+    "build": "tsc",
+    "clean": "node scripts/cleanup.js",
+    "test": "npm run build && cd test && rollup -c rollup.config.js && node output/index.js",
+    "test:clean": "npm run test && npm run clean"
   },
   "devDependencies": {
     "prettier": "^3.1.0",
