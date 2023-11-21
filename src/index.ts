@@ -1,10 +1,14 @@
 import { Plugin } from "rollup";
 
 interface Options {
-  [key: string]: string;
+  cool: boolean;
 }
 
-export default function plugin(options: Options = {}): Plugin {
+export function doIt(thing: string) {
+  return thing;
+}
+
+export default function plugin(options: Options = { cool: true }): Plugin {
   return {
     name: "template"
   };
